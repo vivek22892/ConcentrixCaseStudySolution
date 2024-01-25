@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Infrastructure", "CaseStudy.Concentrix,Infrastrucure\CaseStudy.Concentrix.Infrastructure.csproj", "{3F3E4B58-A639-478C-9536-85A8532C7017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Domain", "CaseStudy.Concentrix.Domain\CaseStudy.Concentrix.Domain.csproj", "{A00845CF-FFC9-4B19-8316-73FDA34DD324}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.DI", "CaseStudy.Concentrix.DI\CaseStudy.Concentrix.DI.csproj", "{D929934B-4B8E-46E4-84A2-73D0B7268344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Application", "CaseStudy.Concentrix.Application\CaseStudy.Concentrix.Application.csproj", "{6748297F-F4AC-4FD8-A356-0766AEAF0192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Abstraction", "CaseStudy.Concentrix.Abstraction\CaseStudy.Concentrix.Abstraction.csproj", "{F7129555-9BCF-4898-8B6D-058A39DD1B95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Api", "CaseStudy.Concentrix.Api\CaseStudy.Concentrix.Api.csproj", "{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F3E4B58-A639-478C-9536-85A8532C7017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3E4B58-A639-478C-9536-85A8532C7017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3E4B58-A639-478C-9536-85A8532C7017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3E4B58-A639-478C-9536-85A8532C7017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A00845CF-FFC9-4B19-8316-73FDA34DD324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A00845CF-FFC9-4B19-8316-73FDA34DD324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A00845CF-FFC9-4B19-8316-73FDA34DD324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A00845CF-FFC9-4B19-8316-73FDA34DD324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D929934B-4B8E-46E4-84A2-73D0B7268344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D929934B-4B8E-46E4-84A2-73D0B7268344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D929934B-4B8E-46E4-84A2-73D0B7268344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D929934B-4B8E-46E4-84A2-73D0B7268344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6748297F-F4AC-4FD8-A356-0766AEAF0192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6748297F-F4AC-4FD8-A356-0766AEAF0192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6748297F-F4AC-4FD8-A356-0766AEAF0192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6748297F-F4AC-4FD8-A356-0766AEAF0192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7129555-9BCF-4898-8B6D-058A39DD1B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7129555-9BCF-4898-8B6D-058A39DD1B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7129555-9BCF-4898-8B6D-058A39DD1B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7129555-9BCF-4898-8B6D-058A39DD1B95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B98B8E1-737D-4B5D-9A44-25D92ABDB7CC}
+	EndGlobalSection
+EndGlobal
