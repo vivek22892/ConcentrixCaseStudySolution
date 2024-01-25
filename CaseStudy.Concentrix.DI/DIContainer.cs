@@ -1,5 +1,7 @@
 ﻿using CaseStudy.Concentrix.Abstraction.Interface;
 using CaseStudy.Concentrix.Application;
+using CaseStudy.Concentrix.Application.Mapper;
+using CaseStudy.Concentrix_Infrastrucure;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -12,12 +14,12 @@ namespace CaseStudy.Concentrix.DI
     {
         public static IServiceCollection AddCaseStudyDIContainer(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<DataProtectionTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromMinutes(30));
+            services.AddAutoMapper(typeof(CaseStudyProfile).Assembly);
             services.AddScoped<IAuthenticateService, AuthenticateService>();
-            services.AddControllers().AddJsonOptions(op =>
-            {
-                op.JsonSerializerOptions.PropertyNamingPolicy = null;
-            });
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IOrderStorage, OrderStorage>();
+            services.Configure<DataProtectionTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromMinutes(30));
+
             return services;
         }
 
