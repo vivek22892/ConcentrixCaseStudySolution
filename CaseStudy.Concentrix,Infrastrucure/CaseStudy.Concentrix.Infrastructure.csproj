@@ -2,9 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>CaseStudy.Concentrix_Infrastrucure</RootNamespace>
+    <RootNamespace>CaseStudy.Concentrix_Infrastructure</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CaseStudy.Concentrix.Abstraction\CaseStudy.Concentrix.Abstraction.csproj" />
+    <ProjectReference Include="..\CaseStudy.Concentrix.Application\CaseStudy.Concentrix.Application.csproj" />
+    <ProjectReference Include="..\CaseStudy.Concentrix.Domain\CaseStudy.Concentrix.Domain.csproj" />
+  </ItemGroup>
 
 </Project>
