@@ -10,6 +10,7 @@ namespace CaseStudy.Concentrix.Api.Controllers
 {
     [Route("api/orders")]
     [ApiController]
+    [Authorize(AuthenticationSchemes =Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
