@@ -12,7 +12,7 @@ namespace CaseStudy.Concentrix.Abstraction.Model
         public string? FirstName { get; set; } = "Vivek";
         public string? LastName { get; set; } = "Sharma";
         public string? UserName { get; set; } = "Vivek Sharma";
-        public string? Email { get; set; } = "vivek.22892@gmail.com";
+        public string? Email { get; set; } = "abc@gmail.com";
         public bool? IsActive { get; set; } = true;
 
     }
