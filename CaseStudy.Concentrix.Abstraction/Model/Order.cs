@@ -1,15 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace CaseStudy.Concentrix.Abstraction.Model
 {
-    public class Order
+    public class Order:Base
     {
-        public int Id { get; set; }
-        public string OrderName { get; set; }
-        public int OrderQuantity { get; set; }
+
+        [RegularExpression(@"^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$")]
+        public string BuyerEmail { get; set; }
+        public Address ShipToAddressEntity { get; set; }
+        public IReadOnlyList<OrderItem> OrderItems { get; set; }
+        public decimal Total { get; set; }
+        public override string ToString()
+        {
+            return JsonSerializer.Serialize(this, this.GetType());
+        }
+
     }
 }

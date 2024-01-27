@@ -10,7 +10,7 @@ namespace CaseStudy.Concentrix.Abstraction.Interface
     public interface IOrderService
     {
         Task<int> PlaceOrderAsync(Order order);
-        Task<List<Order>> GetOrdersAsync(int page, int pageSize);
-        Task<Order> GetOrderByIdAsync(int orderId);
+        Task<List<Order>> GetOrders(int page, int pageSize);
+        Task<Order> GetOrderById(int orderId);
     }
 }

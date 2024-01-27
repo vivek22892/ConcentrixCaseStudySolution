@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaseStudy.Concentrix.Abstraction.Model
+namespace CaseStudy.Concentrix.Domain
 {
-    public abstract class Base
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
-       
     }
 }

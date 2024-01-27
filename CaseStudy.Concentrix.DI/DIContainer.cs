@@ -17,7 +17,7 @@ namespace CaseStudy.Concentrix.DI
             services.AddAutoMapper(typeof(CaseStudyProfile).Assembly);
             services.AddScoped<IAuthenticateService, AuthenticateService>();
             services.AddTransient<IOrderService, OrderService>();
-            services.AddTransient<IOrderStorage, OrderStorage>();
+            services.AddScoped<IInMemoryCache, InMemory>();
             services.Configure<DataProtectionTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromMinutes(30));
 
             return services;

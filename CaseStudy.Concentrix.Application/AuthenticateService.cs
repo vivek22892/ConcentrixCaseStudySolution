@@ -13,7 +13,7 @@ namespace CaseStudy.Concentrix.Application
         private readonly IConfiguration _config;
         public AuthenticateService(IConfiguration config)
         {
-                _config = config;
+            _config = config;
         }
         //<summary> Authenticate the existing user</ summary >
         /// <returns>jwt token</returns>
@@ -24,7 +24,7 @@ namespace CaseStudy.Concentrix.Application
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = CreateClaims(user);
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-            _config["Jwt:Issuer"], 
+            _config["Jwt:Issuer"],
             claims,
              expires: DateTime.Now.AddMinutes(30), signingCredentials: credentials);
             var tokenData = new JwtSecurityTokenHandler().WriteToken(token);

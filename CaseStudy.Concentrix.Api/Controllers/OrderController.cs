@@ -1,7 +1,10 @@
 ﻿using CaseStudy.Concentrix.Abstraction.Interface;
 using CaseStudy.Concentrix.Abstraction.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace CaseStudy.Concentrix.Api.Controllers
 {
@@ -10,9 +13,9 @@ namespace CaseStudy.Concentrix.Api.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
-        private readonly ILogger _logger;
+        private readonly ILogger<OrderController> _logger;
 
-        public OrderController(IOrderService orderService, ILogger logger)
+        public OrderController(IOrderService orderService, ILogger<OrderController> logger)
         {
             _orderService = orderService;
             _logger = logger;
@@ -21,35 +24,65 @@ namespace CaseStudy.Concentrix.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> PlaceOrder([FromBody] Order order)
         {
-            // Implement input validation
-            // Implement exception handling
+            try
+            {
+                _logger.LogDebug("Placing order");
+                if (ModelState.IsValid)
+                {
+                    int orderId = await _orderService.PlaceOrderAsync(order);
+                    _logger.LogDebug("Placed order");
+                    return Ok(new { OrderId = orderId });
+                }
+                _logger.LogDebug("Unable to Place");
+                return BadRequest(ModelState);
 
-            int orderId = await _orderService.PlaceOrderAsync(order);
-
-            return Ok(new { OrderId = orderId });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Placing order");
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetOrders(int page = 1, int pageSize = 10)
         {
-            // Implement exception handling
+            try
+            {
+                _logger.LogDebug("Getting orders");
+                List<Order> orders = await _orderService.GetOrders(page, pageSize);
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("not able find orders");
+                return BadRequest("Failed to get Orders:" + ex.Message);
+            }
 
-            List<Order> orders = await _orderService.GetOrdersAsync(page, pageSize);
-
-            return Ok(orders);
         }
 
         [HttpGet("{orderId}")]
         public async Task<IActionResult> GetOrderById(int orderId)
         {
-            // Implement exception handling
+            try
+            {
+                _logger.LogDebug("Getting specific order");
+                Order order = await _orderService.GetOrderById(orderId);
 
-            Order order = await _orderService.GetOrderByIdAsync(orderId);
+                if (order == null)
+                {
+                    _logger.LogWarning("Order not found");
+                    return NotFound();
+                }
 
-            if (order == null)
-                return NotFound();
-
-            return Ok(order);
+                return Ok(order);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Not able to find order");
+                return BadRequest("Failed to get Order:" + ex.Message); ;
+            }
+           
         }
     }
 }
