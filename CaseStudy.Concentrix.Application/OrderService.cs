@@ -17,6 +17,8 @@ using System.Text.Json;
 using System.Net.Http.Json;
 using Newtonsoft.Json;
 using System.Collections;
+using AutoMapper;
+using System.Diagnostics;
 
 namespace CaseStudy.Concentrix.Application
 {
@@ -25,13 +27,14 @@ namespace CaseStudy.Concentrix.Application
      
         private readonly ILogger _logger = Log.Logger.ForContext<OrderService>();
         private readonly IInMemoryCache _inMemoryCache;
+        private readonly IMapper _mapper;
         private static object _lock = new object();
         private static string path = @"E:\\CaseStudy\\CaseStudy.Concentrix.Infrastructure\\CaseStudy.Concentrix,Infrastrucure\\Data\\Order.txt";
-        public OrderService(ILogger logger, IInMemoryCache inMemoryCache)
+        public OrderService(ILogger logger, IInMemoryCache inMemoryCache, IMapper mapper)
         {
            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _inMemoryCache = inMemoryCache;
-
+            _mapper = mapper;
         }
 
         public async Task<int> PlaceOrderAsync(Order order)
@@ -57,7 +60,7 @@ namespace CaseStudy.Concentrix.Application
             var cacheData = _inMemoryCache.GetData<IEnumerable<Order>>("order");
             if (cacheData != null)
             {
-                IList<Order> specific = GetPage(cacheData, page, pageSize);
+                IList<Order> specific = GetPage(cacheData,page,pageSize); 
                 return (List<Order>)specific;
             }
             lock (_lock)
@@ -65,8 +68,8 @@ namespace CaseStudy.Concentrix.Application
                 var expirationTime = DateTimeOffset.Now.AddMinutes(5.0);
                 cacheData = (IEnumerable<Order>?)DeserializeToObject<Order>(path);
                 _inMemoryCache.SetData<IEnumerable<Order>>("order", cacheData, expirationTime);
-                }
-             return (List<Order>)cacheData;
+            }
+            return (List<Order>)GetPage(cacheData, page, pageSize);
         }
 
         public async Task<Order> GetOrderById(int orderId)
@@ -87,7 +90,7 @@ namespace CaseStudy.Concentrix.Application
 
         private IList<Order> GetPage(IEnumerable<Order> list, int page, int pageSize)
         {
-            return list.Skip(page * pageSize).Take(pageSize).ToList();
+            return list.Skip((page - 1) * pageSize).Take(pageSize).ToList();
         }
 
         private static void SerializeToJSON<T>(List<T> anyobject, string jsonFilePath)
