@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using System.Collections;
 using AutoMapper;
 using System.Diagnostics;
+using CaseStudy.Concentrix.Domain.OrderAggregate;
 
 namespace CaseStudy.Concentrix.Application
 {
@@ -50,6 +51,7 @@ namespace CaseStudy.Concentrix.Application
                 orderList = orderCollection;
                 orderList.Add(order);
             }
+            _mapper.Map<IEnumerable<OrderEntity>>(orderList);
             SerializeToJSON(orderList, path);
             _inMemoryCache.RemoveData("order");
             return order.Id;
@@ -67,6 +69,7 @@ namespace CaseStudy.Concentrix.Application
             {
                 var expirationTime = DateTimeOffset.Now.AddMinutes(5.0);
                 cacheData = (IEnumerable<Order>?)DeserializeToObject<Order>(path);
+                _mapper.Map<IEnumerable<Order>>(cacheData);
                 _inMemoryCache.SetData<IEnumerable<Order>>("order", cacheData, expirationTime);
             }
             return (List<Order>)GetPage(cacheData, page, pageSize);
@@ -83,7 +86,7 @@ namespace CaseStudy.Concentrix.Application
             }
             var orderCollection = DeserializeToObject<Order>(path);
             filteredData = orderCollection.Where(x => x.Id == orderId).FirstOrDefault();
-            return filteredData;
+            return _mapper.Map <Order> (filteredData); ;
  
         }
 
