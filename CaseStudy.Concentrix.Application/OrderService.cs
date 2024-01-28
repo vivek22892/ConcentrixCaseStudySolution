@@ -38,7 +38,7 @@ namespace CaseStudy.Concentrix.Application
             _mapper = mapper;
         }
 
-        public async Task<int> PlaceOrderAsync(Order order)
+        public async Task<Order> PlaceOrderAsync(Order order)
         {
             List<Order> orderList = new List<Order>();
             var orderCollection = DeserializeToObject<Order>(path);
@@ -54,7 +54,7 @@ namespace CaseStudy.Concentrix.Application
             _mapper.Map<IEnumerable<OrderEntity>>(orderList);
             SerializeToJSON(orderList, path);
             _inMemoryCache.RemoveData("order");
-            return order.Id;
+            return order;
         }
 
         public async Task<List<Order>> GetOrders(int page, int pageSize)

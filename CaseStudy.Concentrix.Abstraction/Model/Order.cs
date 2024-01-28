@@ -8,7 +8,7 @@ namespace CaseStudy.Concentrix.Abstraction.Model
 {
     public class Order:Base
     {
-
+        [Required]
         [RegularExpression(@"^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$")]
         public string BuyerEmail { get; set; }
         public Address ShipToAddressEntity { get; set; }

@@ -30,9 +30,9 @@ namespace CaseStudy.Concentrix.Api.Controllers
                 _logger.LogDebug("Placing order");
                 if (ModelState.IsValid)
                 {
-                    int orderId = await _orderService.PlaceOrderAsync(order);
+                    var placedOrder = await _orderService.PlaceOrderAsync(order);
                     _logger.LogDebug("Placed order");
-                    return Ok(new { OrderId = orderId });
+                    return Ok(placedOrder);
                 }
                 _logger.LogDebug("Unable to Place");
                 return BadRequest(ModelState);

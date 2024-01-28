@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Infrastructure", "CaseStudy.Concentrix,Infrastrucure\CaseStudy.Concentrix.Infrastructure.csproj", "{3F3E4B58-A639-478C-9536-85A8532C7017}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseStudy.Concentrix.Infrastructure", "CaseStudy.Concentrix,Infrastrucure\CaseStudy.Concentrix.Infrastructure.csproj", "{3F3E4B58-A639-478C-9536-85A8532C7017}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Domain", "CaseStudy.Concentrix.Domain\CaseStudy.Concentrix.Domain.csproj", "{A00845CF-FFC9-4B19-8316-73FDA34DD324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseStudy.Concentrix.Domain", "CaseStudy.Concentrix.Domain\CaseStudy.Concentrix.Domain.csproj", "{A00845CF-FFC9-4B19-8316-73FDA34DD324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.DI", "CaseStudy.Concentrix.DI\CaseStudy.Concentrix.DI.csproj", "{D929934B-4B8E-46E4-84A2-73D0B7268344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseStudy.Concentrix.DI", "CaseStudy.Concentrix.DI\CaseStudy.Concentrix.DI.csproj", "{D929934B-4B8E-46E4-84A2-73D0B7268344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Application", "CaseStudy.Concentrix.Application\CaseStudy.Concentrix.Application.csproj", "{6748297F-F4AC-4FD8-A356-0766AEAF0192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseStudy.Concentrix.Application", "CaseStudy.Concentrix.Application\CaseStudy.Concentrix.Application.csproj", "{6748297F-F4AC-4FD8-A356-0766AEAF0192}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Abstraction", "CaseStudy.Concentrix.Abstraction\CaseStudy.Concentrix.Abstraction.csproj", "{F7129555-9BCF-4898-8B6D-058A39DD1B95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseStudy.Concentrix.Abstraction", "CaseStudy.Concentrix.Abstraction\CaseStudy.Concentrix.Abstraction.csproj", "{F7129555-9BCF-4898-8B6D-058A39DD1B95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudy.Concentrix.Api", "CaseStudy.Concentrix.Api\CaseStudy.Concentrix.Api.csproj", "{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseStudy.Concentrix.Api", "CaseStudy.Concentrix.Api\CaseStudy.Concentrix.Api.csproj", "{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseStudyTest", "CaseStudyTest\CaseStudyTest.csproj", "{58875B7A-E4F4-4FAA-A64A-8557DADA48B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCEE30FC-7B7D-4800-BFC3-F5DA2B970CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58875B7A-E4F4-4FAA-A64A-8557DADA48B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58875B7A-E4F4-4FAA-A64A-8557DADA48B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58875B7A-E4F4-4FAA-A64A-8557DADA48B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58875B7A-E4F4-4FAA-A64A-8557DADA48B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
